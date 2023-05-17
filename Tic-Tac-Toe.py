@@ -20,11 +20,23 @@ def quit(user_input):
     else: return False
 
 def check_input(user_input):
-    isnum(user_input)
+    if not isnum(user_input):
+        return False
+    user_input = int(user_input)
+    if not bounds(user_input):
+        return False
+    return True
 
 def isnum(user_input):
     if not user_input.isnumeric():
         print("This is not a valid number")
+        return False
+    else:
+        return True
+
+def bounds(user_input):
+    if user_input > 9 or user_input < 1:
+        print("This number is out of bounds")
         return False
     else:
         return True
